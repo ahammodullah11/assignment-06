@@ -37,28 +37,30 @@ export default function WorkoutDetailsPage() {
   const isSaved = savedList.some((item) => item.id === workout.id);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
       <button
         onClick={() => router.back()}
-        className="flex items-center gap-2 text-zinc-400 hover:text-white text-sm mb-6 cursor-pointer"
+        className="flex items-center gap-2 text-zinc-400 hover:text-white text-sm mb-5 cursor-pointer"
       >
         <ArrowLeft className="w-4 h-4" /> Back
       </button>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-        <div className="lg:col-span-5 bg-[#14171a] border border-zinc-800 rounded-3xl overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-start">
+        {/* Left Image */}
+        <div className="lg:col-span-5 bg-[#14171a] border border-zinc-800 rounded-2xl sm:rounded-3xl overflow-hidden">
           <img
             src={workout.image}
             alt={workout.name}
-            className="w-full h-[460px] object-cover"
+            className="w-full h-64 sm:h-[420px] lg:h-[460px] object-cover"
           />
         </div>
 
+        {/* Right Details */}
         <div className="lg:col-span-7">
-          <h1 className="text-3xl sm:text-4xl font-black uppercase tracking-tight">
+          <h1 className="text-2xl sm:text-4xl font-black uppercase tracking-tight">
             {workout.name}
           </h1>
-          <p className="text-zinc-400 text-sm sm:text-base mt-2 leading-relaxed">
+          <p className="text-zinc-400 text-xs sm:text-base mt-2 leading-relaxed">
             {workout.description}
           </p>
 
@@ -66,49 +68,49 @@ export default function WorkoutDetailsPage() {
             {workout.muscleGroups.map((muscle, idx) => (
               <span
                 key={idx}
-                className="bg-[#ccff00] text-black text-xs font-extrabold px-3 py-1 rounded-full"
+                className="bg-[#ccff00] text-black text-[11px] sm:text-xs font-extrabold px-3 py-1 rounded-full"
               >
                 {muscle}
               </span>
             ))}
           </div>
 
-          <div className="mt-6 bg-[#14171a] border border-zinc-800/80 rounded-2xl divide-y divide-zinc-800/80 text-sm">
-            <div className="flex justify-between px-5 py-3.5">
-              <span className="text-zinc-500 font-semibold uppercase text-xs tracking-wider">Equipment</span>
-              <span className="font-semibold text-zinc-200">{workout.equipment}</span>
+          <div className="mt-6 bg-[#14171a] border border-zinc-800/80 rounded-2xl divide-y divide-zinc-800/80 text-xs sm:text-sm">
+            <div className="flex justify-between px-4 sm:px-5 py-3">
+              <span className="text-zinc-500 font-semibold uppercase text-[11px] sm:text-xs tracking-wider">Equipment</span>
+              <span className="font-semibold text-zinc-200 text-right">{workout.equipment}</span>
             </div>
-            <div className="flex justify-between px-5 py-3.5">
-              <span className="text-zinc-500 font-semibold uppercase text-xs tracking-wider">Difficulty</span>
+            <div className="flex justify-between px-4 sm:px-5 py-3">
+              <span className="text-zinc-500 font-semibold uppercase text-[11px] sm:text-xs tracking-wider">Difficulty</span>
               <span className="font-semibold text-zinc-200">{workout.difficulty}</span>
             </div>
-            <div className="flex justify-between px-5 py-3.5">
-              <span className="text-zinc-500 font-semibold uppercase text-xs tracking-wider">Sets</span>
+            <div className="flex justify-between px-4 sm:px-5 py-3">
+              <span className="text-zinc-500 font-semibold uppercase text-[11px] sm:text-xs tracking-wider">Sets</span>
               <span className="font-semibold text-zinc-200">{workout.sets}</span>
             </div>
-            <div className="flex justify-between px-5 py-3.5">
-              <span className="text-zinc-500 font-semibold uppercase text-xs tracking-wider">Reps</span>
+            <div className="flex justify-between px-4 sm:px-5 py-3">
+              <span className="text-zinc-500 font-semibold uppercase text-[11px] sm:text-xs tracking-wider">Reps</span>
               <span className="font-semibold text-zinc-200">{workout.reps}</span>
             </div>
-            <div className="flex justify-between px-5 py-3.5">
-              <span className="text-zinc-500 font-semibold uppercase text-xs tracking-wider">Duration</span>
+            <div className="flex justify-between px-4 sm:px-5 py-3">
+              <span className="text-zinc-500 font-semibold uppercase text-[11px] sm:text-xs tracking-wider">Duration</span>
               <span className="font-semibold text-zinc-200">{workout.duration} min</span>
             </div>
-            <div className="flex justify-between px-5 py-3.5">
-              <span className="text-zinc-500 font-semibold uppercase text-xs tracking-wider">Calories</span>
+            <div className="flex justify-between px-4 sm:px-5 py-3">
+              <span className="text-zinc-500 font-semibold uppercase text-[11px] sm:text-xs tracking-wider">Calories</span>
               <span className="font-semibold text-zinc-200">{workout.caloriesBurned} kcal</span>
             </div>
-            <div className="flex justify-between px-5 py-3.5">
-              <span className="text-zinc-500 font-semibold uppercase text-xs tracking-wider">Rating</span>
+            <div className="flex justify-between px-4 sm:px-5 py-3">
+              <span className="text-zinc-500 font-semibold uppercase text-[11px] sm:text-xs tracking-wider">Rating</span>
               <span className="font-semibold text-zinc-200">{workout.rating}</span>
             </div>
           </div>
 
-          <div className="mt-7">
+          <div className="mt-6 sm:mt-7">
             <h3 className="text-xs font-extrabold uppercase tracking-wider text-zinc-300 mb-3">
               INSTRUCTIONS
             </h3>
-            <ol className="list-decimal list-inside space-y-2 text-sm text-zinc-400">
+            <ol className="list-decimal list-inside space-y-2 text-xs sm:text-sm text-zinc-400">
               {workout.instructions.map((step, index) => (
                 <li key={index} className="leading-relaxed">
                   {step}
@@ -117,10 +119,10 @@ export default function WorkoutDetailsPage() {
             </ol>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 mt-8">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mt-7">
             <button
               onClick={() => addToTodayPlan(workout)}
-              className="flex items-center gap-2 bg-[#ccff00] hover:bg-[#b8e600] text-black font-bold text-sm px-6 py-3.5 rounded-xl transition cursor-pointer"
+              className="flex items-center justify-center gap-2 bg-[#ccff00] hover:bg-[#b8e600] text-black font-bold text-sm px-6 py-3.5 rounded-xl transition cursor-pointer"
             >
               <CalendarPlus className="w-4 h-4" />
               Add to today&apos;s plan
@@ -128,7 +130,7 @@ export default function WorkoutDetailsPage() {
 
             <button
               onClick={() => toggleSaveWorkout(workout)}
-              className={`flex items-center gap-2 border font-semibold text-sm px-6 py-3.5 rounded-xl transition cursor-pointer ${
+              className={`flex items-center justify-center gap-2 border font-semibold text-sm px-6 py-3.5 rounded-xl transition cursor-pointer ${
                 isSaved
                   ? "bg-zinc-800 border-[#ccff00] text-[#ccff00]"
                   : "bg-[#14171a] border-zinc-700 text-zinc-200 hover:border-zinc-500"

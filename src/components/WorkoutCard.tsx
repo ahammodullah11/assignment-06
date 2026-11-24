@@ -20,7 +20,7 @@ export default function WorkoutCard({ workout }: WorkoutCardProps) {
         />
       </div>
 
-      <div className="p-5 flex flex-col flex-grow justify-between">
+      <div className="p-5 flex flex-col grow justify-between">
         <div>
           <div className="flex flex-wrap gap-1.5 mb-3">
             {workout.muscleGroups.map((muscle, idx) => (
